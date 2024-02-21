@@ -1,46 +1,6 @@
 {
   "db": [
-    {
-      "id": "56cc",
-      "selectedDate": "2024-02-10",
-      "selectedTime": "12:00 AM",
-      "name": "sravani",
-      "email": "sravani@gmail.com",
-      "phone": "123"
-    },
-    {
-      "id": "ffdd",
-      "selectedDate": "2024-02-24",
-      "selectedTime": "12:00 AM",
-      "name": "srav",
-      "email": "sravani@gmail.com",
-      "phone": "234"
-    },
-    {
-      "id": "b6af",
-      "selectedDate": "2024-02-08",
-      "selectedTime": "10:00 AM",
-      "name": "sravani",
-      "email": "sravanikondeti4@gmail.com",
-      "phone": "6892846610"
-    },
-    {
-      "id": "666f",
-      "date": "2024-02-16",
-      "slot": "10:00 ",
-      "name": "sravani kondeti",
-      "email": "sravanikondeti4@gmail.com",
-      "phone": "6892846610"
-    },
-    {
-      "id": "504e",
-      "date": "2024-02-23",
-      "slot": "10:00 ",
-      "firstname": "sravani",
-      "lastname": "kondeti",
-      "email": "sravanikondeti4@gmail.com",
-      "phone": "6892846610"
-    },
+    
     {
       "id": "2a8b",
       "date": "2024-02-16",
@@ -49,6 +9,15 @@
       "lastname": "white",
       "email": "john.white@gmail.com",
       "phone": "5678432099"
+    },
+    {
+      "id": "6526",
+      "date": "2024-02-23",
+      "slot": "14:30 ",
+      "firstname": "rose",
+      "lastname": "flower",
+      "email": "rose.flower@gmail.com",
+      "phone": "1234567799"
     }
   ]
 }
