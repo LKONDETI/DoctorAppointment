@@ -2,8 +2,6 @@ import React from "react";
 import { MdOutlineMedicalServices } from "react-icons/md";
 import { IoPersonCircle } from "react-icons/io5";
 
-import BookSlot from "./bookAppoint";
-
 function MainPage(){
     return(
         <div>     
@@ -25,7 +23,6 @@ function MainPage(){
             </div>
         
         </nav></div>
-        <div> <BookSlot/></div>
         
         
                 
