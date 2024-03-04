@@ -1,41 +1,46 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
 import MainPage from "./mainPage";
+import axios from "axios";
 
-function CompanyDisplay(){
-    return(
-        <div>
-           <MainPage/>
-            <div>
-  <div class="card border-info mb-3" style={{maxWidth: "18rem"}}>
-    {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
-    
-    <div class="card-body">
-      <h5 class="card-title">Company 1</h5>
-      <p class="card-text"> description about Company 1</p>
-    </div>
-   <button> <Link to="/1"> NEXT</Link></button>
-  </div>
-  <div class="card border-info mb-3" style={{maxWidth: "18rem"}}>
-    {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
-    <div class="card-body">
-      <h5 class="card-title">Company 2</h5>
-      <p class="card-text">description about Company 2</p>
-    </div>
-    <button> <Link to="/2"> NEXT</Link></button>
-  </div>
-  <div class="card border-info mb-3" style={{maxWidth: "18rem"}}>
-    {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
-    <div class="card-body">
-      <h5 class="card-title">Company 3</h5>
-      <p class="card-text">description about Company 3</p>
-    </div>
-    <button> <Link to="/3"> NEXT</Link></button>
-  </div>
-</div>
+function CompanyDisplay() {
+  const [fetchError, setFetchError] = useState(null);
+  const [company, setCompany] = useState(null);
 
+  useEffect(() => {
+    fetchCompany(); 
+  }, []); 
+
+  const fetchCompany = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/companies');
+      setCompany(response.data); 
+    } catch (error) {
+      console.error('Error fetching company data:', error);
+      setFetchError("Error fetching company data. Please try again later.");
+    }
+  };
+
+  return (
+    <div>
+      <MainPage />
+      {fetchError && <p>{fetchError}</p>}
+      {company && (
+        <div class="d-flex gap-4 row row-cols-4" style={{marginLeft: "50px",marginTop: "20px"}}>
+       
+          {company.map(c => (
+            <div class="border border border-2 rounded-4 p-2 bg-warning-subtle" style={{maxWidth: "18rem", marginLeft: "50px"}}>
+            <div key={c.id}>
+              <h3  class="card-title align-middle">{c.name}</h3>
+              <p class="card-text">{c.description}</p>
+              <p class="card-text"><b>ADDRESS:</b>{c.address}</p>
+              <p class="card-text"><b>CONTACT US:</b>{c.phoneNo}</p>
+              <a href={c.next} class=" card btn btn-secondary">NEXT</a>
+            </div></div>
+          ))}
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
 export default CompanyDisplay;

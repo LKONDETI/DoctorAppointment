@@ -1,6 +1,5 @@
 {
   "db": [
-    
     {
       "id": "2a8b",
       "date": "2024-02-16",
@@ -18,6 +17,123 @@
       "lastname": "flower",
       "email": "rose.flower@gmail.com",
       "phone": "1234567799"
+    },
+    {
+      "id": "a122",
+      "date": "2024-03-01",
+      "slot": "10:00 ",
+      "firstname": "lily",
+      "lastname": "g",
+      "email": "lily.g@gmail.com",
+      "phone": "8976655432"
+    },
+    {
+      "id": "3515",
+      "date": "2024-03-15",
+      "slot": "10:30 ",
+      "firstname": "rose",
+      "lastname": "y",
+      "email": "rose.y@gmail.com",
+      "phone": "11332548376"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "COMPANY 1",
+      "description": "this is all about company1",
+      "address": "123 street1, town1, WA, 12344 ",
+      "phoneNo": "123456787",
+      "next": "http://localhost:3000/1"
+    },
+    {
+      "id": "2",
+      "name": "COMPANY 2",
+      "description": "this is all about company2",
+      "address": "123 street2, town2, WA, 12894 ",
+      "phoneNo": "09877326487",
+      "next": "http://localhost:3000/2"
+    },
+    {
+      "id": "3",
+      "name": "COMPANY 3",
+      "description": "this is all about company3",
+      "address": "456 street3, town3, WA, 12895 ",
+      "phoneNo": "8594326487",
+      "next": "http://localhost:3000/3"
+    }
+  ],
+  "1": [
+    {
+      "id": "1",
+      "name": "PARTNER 1",
+      "description": "this is all about partner1",
+      "address": "Room 112 ",
+      "phoneNo": "1321332456",
+      "book":"http://localhost:3000/site"
+    },
+    {
+      "id": "2",
+      "name": "PARTNER 2",
+      "description": "this is all about partner2",
+      "address": "Room 113",
+      "phoneNo": "13423525432",
+      "book":"http://localhost:3000/site"
+    },
+    {
+      "id": "3",
+      "name": "PARTNER 3",
+      "description": "this is all about partner3",
+      "address": "Room 323 ",
+      "phoneNo": "21546658",
+      "book":"http://localhost:3000/site"
+    }
+  ],
+  "2": [
+    {
+      "id": "1",
+      "name": "PARTNER 4",
+      "description": "this is all about partner1",
+      "address": "Room 211 ",
+      "phoneNo": "557656",
+      "book":"http://localhost:3000/site"
+    },
+    {
+      "id": "2",
+      "name": "PARTNER 5",
+      "description": "this is all about partner2",
+      "address": "Room 311",
+      "phoneNo": "665445"
+    },
+    {
+      "id": "3",
+      "name": "PARTNER 6",
+      "description": "this is all about partner3",
+      "address": "Room 213 ",
+      "phoneNo": "6563432"
+    }
+  ],
+  "3": [
+    {
+      "id": "1",
+      "name": "PARTNER 7",
+      "description": "this is all about partner1",
+      "address": "Room 101 ",
+      "phoneNo": "5656454243"
+    },
+    {
+      "id": "2",
+      "name": "PARTNER 8",
+      "description": "this is all about partner2",
+      "address": "Room 102",
+      "phoneNo": "66745645334"
+    },
+    {
+      "id": "3",
+      "name": "PARTNER 9",
+      "description": "this is all about partner3",
+      "address": "Room 103 ",
+      "phoneNo": "3432547467"
     }
   ]
 }

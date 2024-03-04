@@ -9,7 +9,7 @@ function DoctorDetails(){
         <div>
            <MainPage/>
         <div>
-<div class="card border-info mb-3" style={{maxWidth: "18rem"}}>
+<div class="card border-info " style={{maxWidth: "18rem"}}>
 {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
 
 <div class="card-body">
@@ -18,7 +18,7 @@ function DoctorDetails(){
 </div>
 <button> <Link to="/site"> Book your appointment</Link></button>
 </div>
-<div class="card border-info mb-3" style={{maxWidth: "18rem"}}>
+<div class="card border-info" style={{maxWidth: "18rem"}}>
 {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
 <div class="card-body">
   <h5 class="card-title">Doctor 2</h5>
@@ -26,7 +26,7 @@ function DoctorDetails(){
 </div>
 <button> <Link to="/site"> Book your Appointment</Link></button>
 </div>
-<div class="card border-info mb-3" style={{maxWidth: "18rem"}}>
+<div class="card border-info" style={{maxWidth: "18rem"}}>
 {/* <img class="card-img-top" src="..." alt="Card image cap"/> */}
 <div class="card-body">
   <h5 class="card-title">Doctor 3</h5>
