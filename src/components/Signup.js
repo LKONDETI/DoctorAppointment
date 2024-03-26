@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import MainPage from "./mainPage";
 
 function Signin(){
     const [lastname, setLastName] = useState('');
@@ -27,9 +28,13 @@ function Signin(){
       const getUserIdFromStorage = () => {
         return console.log(localStorage.getItem('userId'));
       };
+
+      
 return(
    
   <div >
+    <MainPage/>
+    <div class="container py-5 mh-100">
     <div class="card text-white" style={{borderRadius: '1rem',backgroundColor:"grey"}}>
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div>
@@ -43,7 +48,7 @@ return(
                 placeholder="Last Name"
                 value={lastname}
                 onChange={e => setLastName(e.target.value)}
-                />
+                /> 
               </div>
               
                 
@@ -67,7 +72,7 @@ return(
     </div>
 
  
-  </div>
+  </div></div>
 
 )
 }

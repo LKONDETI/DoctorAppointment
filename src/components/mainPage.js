@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlineMedicalServices } from "react-icons/md";
 import { IoPersonCircle } from "react-icons/io5";
 
+
 function MainPage(){
     return(
         <div>     
@@ -17,7 +18,7 @@ function MainPage(){
                         <a>ContactUs</a>
                     </li>
                     <li class="nav-item">
-                        <div><a href="http://localhost:3000/login"><IoPersonCircle /></a></div>
+                        <div><a href="http://localhost:3000/log"><IoPersonCircle /></a></div>
                     </li></ul>
                </div>
             </div>

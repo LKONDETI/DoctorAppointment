@@ -4,6 +4,8 @@ import axios from "axios";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import MainPage from "./mainPage";
+import { Link } from "react-router-dom";
+
 
 function Site(){
     const [selectedDate, setSelectedDate] = useState(null);
@@ -12,6 +14,8 @@ function Site(){
     const [lastname, setLastName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
+    const [company, setCompany] = useState('');
+    const [doctor, setDoctor] = useState('');
     const [open,setOpen] = useState(false);
   const timeSlots = generateTimeSlots();
 
@@ -28,20 +32,44 @@ const handleTimeSlotSelect = ( ) => {
   setOpen(true);
 };
 
+const companyOptions = [
+  { value: 'company1', label: 'Company 1' },
+  { value: 'company2', label: 'Company 2' },
+  { value: 'company3', label: 'Company 3' },
+  
+];
+
+const doctorOptions = [
+  { value: 'doctor1', label: 'Doctor 1' },
+  { value: 'doctor2', label: 'Doctor 2' },
+  { value: 'doctor3', label: 'Doctor 3' },
+  
+];
+
+const handleCompanyChange = (event) => {
+  setCompany(event.target.value);
+};
+
+const handleDoctorChange = (event) => {
+  setDoctor(event.target.value);
+};
+
   const handleSubmit = () => {
     if (selectedDate && selectedSlot) {
-        // Make a POST request to your JSON server to store the selected date and slot
-        axios.post('http://localhost:8000/db', {
-            date: selectedDate.toISOString().split('T')[0], // Format the date without time
+        
+        axios.post('http://localhost:8000/customers', {
+            date: selectedDate.toISOString().split('T')[0],
             slot: selectedSlot,
             firstname,
             lastname,
             email,
-            phone
+            phone,
+            company,
+            doctor
         })
         .then(response => {
             console.log('Data successfully stored:', response.data);
-           
+            
         })
         .catch(error => {
             console.error('Error storing data:', error);
@@ -55,6 +83,8 @@ const handleTimeSlotSelect = ( ) => {
   return (
     <div>
       <MainPage/>
+      <button type="button" class="btn btn-outline-secondary"><a href="http://localhost:3000/1">Go back</a></button>
+
     <div className="d-flex align-items-stretch">
       <div>
         <div>
@@ -85,6 +115,26 @@ const handleTimeSlotSelect = ( ) => {
        {open && (
         <form onSubmit={handleSubmit}>
             <div className="container">
+            
+            <div className="row">
+      <div className="col">
+        <b>Select Company:</b>
+        <select value={company} onChange={handleCompanyChange} required>
+          <option value="">Select Company</option>
+          {companyOptions.map(option => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div>
+      <div className="col">
+        <b>Select Doctor:</b>
+        <select value={doctor} onChange={handleDoctorChange} required>
+          <option value="">Select Doctor</option>
+          {doctorOptions.map(option => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+      </div></div>
                 <div className="row">
                     <div className="col">
                         <b> First Name:</b>
@@ -104,12 +154,12 @@ const handleTimeSlotSelect = ( ) => {
                     </div>
                     <div className="row">
                         <div className="col-xs-3">
-                            <button type="submit">Save</button>
+                            <button type="submit" >Book your Appointment</button>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <div><BookingStatus/></div> */}
+            
         </form>
     )}             
 

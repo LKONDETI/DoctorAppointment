@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MainPage from "./mainPage";
 
-function PartnerDetails(){
+function CompaniesWithSupa(){
     const [loading, setLoading] = useState(true);
     const [partners, setPartners] = useState([]);
   
@@ -56,4 +56,4 @@ function PartnerDetails(){
 }
 
 
-export default PartnerDetails;
+export default CompaniesWithSupa;

@@ -1,15 +1,14 @@
 import './App.css';
-//import supabase from './config/supabaseClient';
+// import supabase from './config/supabaseClient';
 
 import MainPage from './components/mainPage';
-// import CompanyDisplay from './components/sample1';
 import Login from './components/login';
 import Site from './components/firstSite';
 import CompanyDisplay from './components/company';
-//import DoctorDetails from './components/details';
+import PartnerDetails from './components/details'
 import Signin from './components/Signup';
 import UserDetailsPage from './components/auth';
-import PartnersDisplay from './components/partner';
+import CompaniesWithSupa from './components/comp';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -25,11 +24,11 @@ function App() {
       <Route path='/log' element={<Signin/>} />
       <Route path='/main' element={<MainPage/>} />
       <Route path='/login' element={<Login/>}></Route>
-      <Route path='/site' element ={<Site/>} />
+      <Route path='/register' element ={<Site/>} />
       <Route path='/' element ={<CompanyDisplay/>} />
-      <Route path='/${id}' element ={<PartnersDisplay/>} /> 
-      {/* <Route path='/1' element ={<DoctorDetails/>} /> */}
+      <Route path='/1' element ={<PartnerDetails/>} />
       <Route path='/page' element ={<UserDetailsPage/>} />
+      <Route path='/company' element ={<CompaniesWithSupa/>} />
       </Routes>
       </Router>
      
