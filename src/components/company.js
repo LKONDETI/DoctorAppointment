@@ -46,7 +46,7 @@ function CompanyDisplay(){
               <p class="card-text"><b>CONTACT US:</b>{company.company_phone}</p>
               <p class="card-text">{company.company_email}</p>
               <a href="{company.company_website}"> Go to the company website</a><br/>
-              <button type="button" class="btn btn-light"> <Link to="/1"> NEXT </Link></button>
+              <button type="button" class="btn btn-light"> <Link to="/partner"> NEXT </Link></button>
               {/* <a href={c.next} class=" card btn btn-secondary">NEXT</a> */}
             </div></div>
           ))}

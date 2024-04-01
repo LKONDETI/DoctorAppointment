@@ -1,30 +1,5 @@
 {
-  "companies": [
-    {
-      "id": "1",
-      "name": "HOSPITAL 1",
-      "description": "this is all about company1",
-      "address": "123 street1, town1, WA, 12344 ",
-      "phoneNo": "123456787",
-      "next": "http://localhost:3000/1"
-    },
-    {
-      "id": "2",
-      "name": "HOSPITAL 2",
-      "description": "this is all about company2",
-      "address": "123 street2, town2, WA, 12894 ",
-      "phoneNo": "09877326487",
-      "next": "http://localhost:3000/1"
-    },
-    {
-      "id": "3",
-      "name": "HOSPITAL 3",
-      "description": "this is all about company3",
-      "address": "456 street3, town3, WA, 12895 ",
-      "phoneNo": "8594326487",
-      "next": "http://localhost:3000/1"
-    }
-  ],
+  
   "customers": [
     {
       "id": "2a8b",

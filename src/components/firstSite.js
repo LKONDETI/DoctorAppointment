@@ -83,7 +83,7 @@ const handleDoctorChange = (event) => {
   return (
     <div>
       <MainPage/>
-      <button type="button" class="btn btn-outline-secondary"><a href="http://localhost:3000/1">Go back</a></button>
+      <button type="button" class="btn btn-outline-secondary"><a href="http://localhost:3000/partner">Go back</a></button>
 
     <div className="d-flex align-items-stretch">
       <div>
