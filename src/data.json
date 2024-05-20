@@ -1,5 +1,4 @@
 {
-  
   "customers": [
     {
       "id": "2a8b",
@@ -80,6 +79,17 @@
       "phone": "1243743278",
       "company": "company2",
       "doctor": "doctor3"
+    },
+    {
+      "id": "0b69",
+      "date": "2024-05-17",
+      "slot": "18:00 ",
+      "firstname": "cat",
+      "lastname": "animal",
+      "email": "canimal89@gmail.com",
+      "phone": "9328498237482312",
+      "company": "company2",
+      "doctor": "doctor2"
     }
   ]
 }

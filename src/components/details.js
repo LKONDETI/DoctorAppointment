@@ -44,7 +44,7 @@ function PartnerDetails(){
               <p class="card-text"><b>ADDRESS:</b>{partner.address}</p>
               <p class="card-text">{partner.city}, {partner.state}, {partner.zip}, {partner.country}</p>
               <p class="card-text"><b>CONTACT US:</b>{partner.phone}</p>
-              <button class="border border-warning"> <Link to="/register"> Book your Appointment</Link></button>
+              <button class="border border-warning"> <Link to="/book"> Book your Appointment</Link></button>
               {/* <a href={c.next} class=" card btn btn-secondary">NEXT</a> */}
             </div></div>
           ))}

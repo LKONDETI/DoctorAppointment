@@ -1,12 +1,16 @@
 import React from "react";
 import supabase from "../config/supabaseClient";
-import { useState } from "react";
-import Calendar from "react-calendar";
-//import { Link } from "react-router-dom";
-//import MainPage from "./mainPage";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+// import MainPage from "./mainPage";
+
 
 function CompaniesWithSupa(){
-    
+  
+  const [companies, setCompanies] = useState([]);
+  const [partners, setPartners] = useState([]);
+  const navigate = useNavigate();
+  const [latestBookingId, setLatestBookingId] = useState(null);
     const [formData, setFormData] = useState({
       company_id: '',
       customer_first_name: '',
@@ -19,6 +23,44 @@ function CompaniesWithSupa(){
       customer_zip: '',
       partner_id: ''
     });
+
+    useEffect(() => {
+      const fetchPartners = async () => {
+        const { data, error } = await supabase
+          .from('partner')
+          .select('*');
+        if (error) console.error('Error fetching partners:', error);
+        else setPartners(data);
+      };
+  
+      const fetchCompanies = async () => {
+        const { data, error } = await supabase
+          .from('company')
+          .select('*');
+        if (error) console.error('Error fetching companies:', error);
+        else setCompanies(data);
+      };
+      const fetchLatestBooking = async () => {
+        const { data, error } = await supabase
+          .from('booking')
+          .select('id')
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .single();
+          
+        if (error) {
+          console.error('Error fetching latest booking:', error);
+        } else if (data) {
+          setLatestBookingId(data.id);
+        }
+      };
+
+      fetchLatestBooking();
+      fetchPartners();
+      fetchCompanies();
+      
+    }, []);
+      
   
     const handleChange = (e) => {
       const { name, value } = e.target;
@@ -30,15 +72,27 @@ function CompaniesWithSupa(){
   
     
       const handleSubmit = async (formData) => {
+
+        if (!latestBookingId) {
+          alert('No booking available.');
+          return;
+        }
+    
+        const dataToSubmit = {
+          ...formData,
+          booking_number: latestBookingId
+        };
+
         try {
           const { data, error } = await supabase
             .from('customer')
-            .insert([formData]);
+            .insert([dataToSubmit]);
           if (error) {
             throw error;
           }
-          console.log('Data inserted successfully:', data);
-          // Optionally, you can perform some actions after successful submission
+          // console.log('Data inserted successfully:', data);
+          alert('your slot is booked')
+          navigate('/')
         } catch (error) {
           alert('add your details')
           console.error('Error inserting data:', error.message);
@@ -47,24 +101,16 @@ function CompaniesWithSupa(){
       
     return (
       <div>
+        {/* <MainPage/> */}
       <form onSubmit={(e) => {
         e.preventDefault();
         handleSubmit(formData);}}>
 
           <div>
-          {/* <h5>Select Date:</h5>
-            <Calendar
-            onChange={(date) => handleChange(date, 'date')}
-          value={formData.date}  
-        /> */}
-        {/* <ul>
-              {timeSlots.map((slot, index) => (
-                <button class={`btn btn-outline-secondary ${selectedSlot === slot ? 'active' : ''}`} key={index} onClick={() => handleSlotSelect(slot)}>{slot}</button>
-              ))}
-            </ul> */}
+          
 
           </div>
-          <input type="number" name="company_id" placeholder="company number" value= {formData.company_id} onChange={handleChange}/>
+          {/* <input type="number" name="company_id" placeholder="company number" value= {formData.company_id} onChange={handleChange}/> */}
           <input type="text" name="customer_first_name" placeholder="First name" value= {formData.customer_first_name} onChange={handleChange}/>
           <input type="text" name="customer_last_name" placeholder="Last name" value= {formData.customer_last_name} onChange={handleChange}/>
           <input type="text" name="customer_address" placeholder="Adress" value= {formData.customer_address} onChange={handleChange}/>
@@ -73,30 +119,54 @@ function CompaniesWithSupa(){
           <input type="text" name="customer_city" placeholder="city" value= {formData.customer_city} onChange={handleChange}/>
           <input type="text" name="customer_state" placeholder="state" value= {formData.customer_state} onChange={handleChange}/>
           <input type="text" name="customer_zip" placeholder="zip code" value= {formData.customer_zip} onChange={handleChange}/>
-          <input type="text" name="partner_id" placeholder="partner number" value= {formData.partner_id} onChange={handleChange}/>
+          {/* <input type="text" name="partner_id" placeholder="partner number" value= {formData.partner_id} onChange={handleChange}/> */}
+          
+          
+          <label>
+          Select Company:
+          <select
+            name="company_id"
+            value={formData.company_id}
+            onChange={handleChange}
+          >
+            <option value="">Select a company</option>
+            {companies.map((company) => (
+              <option key={company.id} value={company.id}>
+                {company.company_name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Select Partner:
+          <select
+            name="partner_id"
+            value={formData.partner_id}
+            onChange={handleChange}
+          >
+            <option value="">Select a partner</option>
+            {partners.map((partner) => (
+              <option key={partner.id} value={partner.id}>
+                {partner.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+          
+          
           {/* <label>Select date:<input type="date" name="date" placeholder="date" value= {formData.date} onChange={handleChange}/></label>
            */}
   <button type="submit">Submit</button>
+  <div>
+           
+  </div>
 </form>
 
       </div>
     );
 
 }
-// const generateTimeSlots = () => {
-//   const startTime = 8;
-//   const endTime = 18;
-//   const timeSlots = [];
-
-//   for (let i = startTime; i <= endTime; i++) {
-//     timeSlots.push(`${i}:00 `);
-//     if (i !== endTime) {
-//       timeSlots.push(`${i}:30 `);
-//     }
-//   }
-
-//   return timeSlots;
-// };
-
 
 export default CompaniesWithSupa;

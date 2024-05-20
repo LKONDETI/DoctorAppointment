@@ -9,6 +9,7 @@ import PartnerDetails from './components/details'
 import Signin from './components/Signup';
 import UserDetailsPage from './components/auth';
 import CompaniesWithSupa from './components/comp';
+import Booking from './components/slotBooking';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -28,7 +29,8 @@ function App() {
       <Route path='/' element ={<CompanyDisplay/>} />
       <Route path='/partner' element ={<PartnerDetails/>} />
       <Route path='/page' element ={<UserDetailsPage/>} />
-      <Route path='/company' element ={<CompaniesWithSupa/>} />
+      <Route path='/comp' element ={<CompaniesWithSupa/>} />
+      <Route path='/book' element ={<Booking/>} />
       </Routes>
       </Router>
      
