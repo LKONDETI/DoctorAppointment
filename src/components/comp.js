@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 // import MainPage from "./mainPage";
 
 
-function CompaniesWithSupa(){
+function CustomerList(){
   
   const [companies, setCompanies] = useState([]);
   const [partners, setPartners] = useState([]);
@@ -169,4 +169,4 @@ function CompaniesWithSupa(){
 
 }
 
-export default CompaniesWithSupa;
+export default CustomerList;

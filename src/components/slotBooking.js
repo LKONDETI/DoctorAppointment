@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
-// import axios from "axios";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import MainPage from "./mainPage";
 import supabase from "../config/supabaseClient";
 import { useNavigate } from "react-router-dom";
-import CompaniesWithSupa from "./comp";
+import CustomerList from "./comp";
 
 
 function Booking(){
@@ -45,7 +44,6 @@ function Booking(){
         console.log('Data inserted successfully:', data);
         setOpen(true)
         // navigate('/company')
-
         } catch (error) {
           alert('add your details')
           console.error('Error inserting data:', error.message);
@@ -108,7 +106,7 @@ function Booking(){
                     
         </div>
         <div>
-          {open &&(<CompaniesWithSupa/>
+          {open &&(<CustomerList/>
           )}
         </div>
       </div>
